@@ -1,11 +1,13 @@
 import "dotenv/config";
 import express from "express";
 import authRoutes from "./routes/auth.js"
+import fileRoutes from "./routes/files.js"
 import { authenticateToken } from "./middleware/authMiddleware.js";
 const app = express();
 
 app.use(express.json());
 app.use("/auth", authRoutes);
+app.use("/files", fileRoutes);
 
 const PORT = process.env.PORT || 3000;
 
