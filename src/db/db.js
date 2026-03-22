@@ -11,4 +11,18 @@ db.prepare(
     `,
 ).run();
 
+db.prepare(
+  `
+    CREATE TABLE IF NOT EXISTS files(
+    id TEXT PRIMARY KEY,
+    userId TEXT NOT NULL,
+    originalName TEXT NOT NULL,
+    storedName TEXT NOT NULL,
+    size INTEGER,
+    mimeType TEXT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+    `,
+).run();
+
 export default db;
